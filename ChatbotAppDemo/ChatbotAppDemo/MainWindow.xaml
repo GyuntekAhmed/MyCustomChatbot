@@ -1,10 +1,11 @@
 ﻿<Window x:Class="ChatbotAppDemo.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Chatbot" Height="350" Width="525">
+        Title="Chatbot" Height="500" Width="850" Background="#FFDDEBFF">
     <Grid>
-        <TextBox Name="UserMessageTextBox" Height="30" Margin="10,10,10,0" VerticalAlignment="Top"/>
-        <Button Name="sendBtn" Content="Send" Height="30" Margin="10,50,10,0" VerticalAlignment="Top" Click="sendBtn_Click"/>
-        <TextBox Name="BotResponseTextBox" Margin="10,90,10,10" VerticalAlignment="Top" TextWrapping="Wrap" AcceptsReturn="True"/>
+        <TextBox Name="UserMessageTextBox" Height="150" Margin="10,10,10,10" VerticalAlignment="Top" RenderTransformOrigin="0.501,0.5"/>
+        <Button Name="sendBtn" Content="Send" Height="30" Margin="20,190,700,0" VerticalAlignment="Top" Click="sendBtn_Click"/>
+        <Button Name="canlcelBtn" Content="Cancel" Height="30" Margin="170,190,550,0" VerticalAlignment="Top" Click="canlcelBtn_Click"/>
+        <TextBox Name="BotResponseTextBox" Height="220" Margin="10,250,10,10" VerticalAlignment="Top" TextWrapping="Wrap" AcceptsReturn="True"/>
     </Grid>
 </Window>

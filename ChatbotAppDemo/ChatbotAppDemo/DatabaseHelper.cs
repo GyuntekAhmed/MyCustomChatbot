@@ -1,14 +1,20 @@
 ﻿using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 
 public class DatabaseHelper
 {
-	private string connectionString = "Server=.;Database=SisTechnologyDB;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true;";
+	private readonly string _connectionString;
+
+	public DatabaseHelper(IConfiguration configuration)
+	{
+		_connectionString = configuration.GetConnectionString("DefaultConnection");
+	}
 
 	public List<(string Question, string Answer)> GetFAQs()
 	{
 		var faqs = new List<(string Question, string Answer)>();
 
-		using (SqlConnection connection = new SqlConnection(connectionString))
+		using (SqlConnection connection = new SqlConnection(_connectionString))
 		{
 			connection.Open();
 			string query = "SELECT Question, Answer FROM FAQ";
@@ -24,3 +30,4 @@ public class DatabaseHelper
 		return faqs;
 	}
 }
+
